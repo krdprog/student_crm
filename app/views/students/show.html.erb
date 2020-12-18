@@ -7,7 +7,7 @@
   <p><strong>Отчество:</strong> <%= @student.middle_name %></p>
 <% end %>
 
-<p><%= link_to I18n.t('.edit_button'), edit_student_path(@student),
-               class: 'btn btn-success btn-sm' %></p>
-
-<p><%= link_to 'Смотреть всех студентов', students_path, class: 'btn btn-warning btn-sm' %></p>
+<p>
+  <%= link_to I18n.t('.edit_button'), edit_student_path(@student), class: 'btn btn-success' %>
+  <%= link_to 'Смотреть всех студентов', students_path, class: 'btn btn-warning' %>
+</p>
