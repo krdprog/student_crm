@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     if @student.valid?
       @student.save
-      redirect_to @student
+      redirect_to @student, notice: 'Студент успешно добавлен'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
 
   def update
     if @student.update(student_params)
-      redirect_to @student
+      redirect_to @student, notice: 'Студент успешно обновлён'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class StudentsController < ApplicationController
 
   def destroy
     @student.destroy
-    redirect_to students_path
+    redirect_to students_path, notice: 'Студент успешно удалён'
   end
 
   private
