@@ -1,0 +1,10 @@
+ru:
+  submit_button: Сохранить
+  back_button: Назад
+  details_button: Подробнее
+  edit_button: Редактировать
+  search_button: Найти
+  show_all_button: Показать всё
+  will_paginate:
+    previous_label: Предыдущая
+    next_label: Следующая
