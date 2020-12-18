@@ -1,0 +1,10 @@
+<tr>
+  <th scope="row"><%= link_to student.full_name, edit_student_path(student) %></th>
+    <td>
+      <%= link_to I18n.t('.details_button'), student_path(student), class: 'btn btn-dark btn-sm' %>
+      <%= link_to I18n.t('.edit_button'), edit_student_path(student), class: 'btn btn-success btn-sm' %>
+      <%= link_to I18n.t('.destroy_button'), student_path(student),
+                method: :delete, class: 'btn btn-danger btn-sm',
+                data: { confirm: I18n.t('.destroy_confirmation') } %>
+    </td>
+</tr>

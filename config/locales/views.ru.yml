@@ -3,6 +3,8 @@ ru:
   back_button: Назад
   details_button: Подробнее
   edit_button: Редактировать
+  destroy_button: Удалить
+  destroy_confirmation: Точно удалить?
   search_button: Найти
   show_all_button: Показать всё
   will_paginate:

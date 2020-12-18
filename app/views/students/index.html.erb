@@ -1,0 +1,21 @@
+<h1>Студенты</h1>
+
+<% if @students.any? %>
+  <p><%= link_to 'Добавить студента', new_student_path, class: 'btn btn-success' %></p>
+
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ФИО студента</th>
+        <th scope="col">Управление</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @students %>
+    </tbody>
+  </table>
+<% else %>
+  <p>В списке студентов пусто.</p>
+
+  <p><%= link_to 'Добавить студента', new_student_path, class: 'btn btn-success' %></p>
+<% end %>
