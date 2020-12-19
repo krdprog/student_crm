@@ -22,10 +22,15 @@
   </div>
 
   <div class="mb-3">
-    <%= f.label :gender %>
+    <%= f.label :gender, class: 'form-label' %>
     <%= f.select :gender, Student.genders.keys
           .map {|key| [Student.human_attribute_name("gender.#{key}"), key]},
           include_blank: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :signal, class: 'form-label' %>
+    <%= f.text_field :signal, class: 'form-control form-control-lg' %>
   </div>
 
   <div class="mb-3 mt-4">

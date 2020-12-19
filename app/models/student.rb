@@ -3,6 +3,7 @@ class Student < ApplicationRecord
   validates :middle_name, length: { maximum: 60 }
   validates :last_name, length: { maximum: 40 }, presence: true
   validates :gender, presence: true
+  validates :signal, uniqueness: true, length: { minimum: 6, maximum: 16 }, if: :signal?
 
   enum gender: {
     male: 0,

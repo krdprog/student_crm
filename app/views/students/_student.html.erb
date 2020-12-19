@@ -1,6 +1,7 @@
 <tr>
   <th scope="row"><%= link_to student.full_name, edit_student_path(student) %></th>
   <td><%= Student.human_attribute_name("gender.#{student.gender}") %></td>
+  <td><%= student.signal %></td>
   <td>
     <%= link_to I18n.t('.details_button'), student_path(student), class: 'btn btn-dark btn-sm' %>
     <%= link_to I18n.t('.edit_button'), edit_student_path(student), class: 'btn btn-success btn-sm' %>

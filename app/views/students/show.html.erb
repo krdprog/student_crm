@@ -8,6 +8,11 @@
 <% end %>
 
 <p><strong>Пол:</strong> <%= Student.human_attribute_name("gender.#{@student.gender}") %></p>
+
+<% if @student.signal.present? %>
+  <p><strong>Позывной:</strong> <%= @student.signal %></p>
+<% end %>
+
 <p>
   <%= link_to I18n.t('.edit_button'), edit_student_path(@student), class: 'btn btn-success' %>
   <%= link_to I18n.t('.destroy_button'), student_path(@student),
