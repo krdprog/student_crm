@@ -21,6 +21,13 @@
     <%= f.text_field :last_name, class: 'form-control form-control-lg' %>
   </div>
 
+  <div class="mb-3">
+    <%= f.label :gender %>
+    <%= f.select :gender, Student.genders.keys
+          .map {|key| [Student.human_attribute_name("gender.#{key}"), key]},
+          include_blank: true %>
+  </div>
+
   <div class="mb-3 mt-4">
     <%= f.submit I18n.t('.submit_button'), class: 'btn btn-success' %>
     <%= link_to I18n.t('.back_button'), :back, class: 'btn btn-dark' %>
