@@ -1,24 +1,33 @@
-# README
+# Система управления студентами
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Демо-сайт
 
-Things you may want to cover:
+Для демонстрации работы проекта перейдите по ссылке https://students2021.herokuapp.com/
 
-* Ruby version
+Или запустите проект локально на http://localhost:3000/
 
-* System dependencies
+### Версия программного обеспечения
 
-* Configuration
+- Ruby: 2.7.2
+- Ruby on Rails 6.1.0
+- Development DB: SQLite
+- Production DB: PostgreSQL
 
-* Database creation
+### Запуск проекта
 
-* Database initialization
+Проект поставляется файлом `seeds.rb` который заполняет базу данных тестовой информацией.
 
-* How to run the test suite
+В каталоге проекта запустите миграции и сиды:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+rails db:migrate
+rails db:seed
+```
 
-* Deployment instructions
+#### Запуск:
 
-* ...
+```bash
+rails s
+```
+
+И, откройте в браузере: http://localhost:3000/
