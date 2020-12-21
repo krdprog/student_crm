@@ -12,3 +12,30 @@
  *
  */
 @import "bootstrap";
+
+.paginator {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.pagination a {
+  font-size: 1.1rem;
+  padding: 5px;
+}
+
+.pagination .current {
+  background-color: #7a7a7a;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 6px;
+}
+
+.pagination .previous_page, .pagination .next_page {
+  padding: 5px;
+}

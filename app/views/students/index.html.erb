@@ -3,12 +3,29 @@
 <% if @students.any? %>
   <p><%= link_to 'Добавить студента', new_student_path, class: 'btn btn-success' %></p>
 
-  <table class="table table-striped table-bordered">
+  <%= search_form_for @search, url: students_path do |f| %>
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+        <%= f.label :last_name_cont, 'Поиск по фамилии:', class: 'col-form-label' %>
+      </div>
+      <div class="col-auto">
+        <%= f.text_field :last_name_cont, class: 'form-control' %>
+      </div>
+      <div class="col-auto">
+        <%= f.submit I18n.t('.search_button'), class: 'btn btn-dark' %> или
+        <%= link_to I18n.t('.show_all_button'), students_path, class: 'btn btn-warning' %>
+      </div>
+    </div>
+  <% end %>
+
+  <p>Найдено <%= @students.count %> из <%= @students_count %></p>
+
+  <table class="table table-bordered border-dark">
     <thead>
-      <tr>
-        <th scope="col">ФИО студента</th>
-        <th scope="col">Пол</th>
-        <th scope="col">Позывной</th>
+      <tr class="table-primary border-dark">
+        <th scope="col"><%= sort_link(@search, :last_name, 'ФИО студента', default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@search, :gender, 'Пол', default_order: :desc) %></th>
+        <th scope="col"><%= sort_link(@search, :signal, 'Позывной', default_order: :desc) %></th>
         <th scope="col">Управление</th>
       </tr>
     </thead>
@@ -16,6 +33,13 @@
       <%= render @students %>
     </tbody>
   </table>
+
+  <div class="paginator"><%= will_paginate %></div>
+
+<% elsif params[:q].present? %>
+  <p>Ничего не нашлось. Всего в базе: <%= @students_count %></p>
+
+  <%= link_to I18n.t('.show_all_button'), students_path, class: 'btn btn-warning' %>
 <% else %>
   <p>В списке студентов пусто.</p>
 

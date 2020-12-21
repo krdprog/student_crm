@@ -2,7 +2,9 @@ class StudentsController < ApplicationController
   before_action :set_student, only: %i[show edit update destroy]
 
   def index
-    @students = Student.all
+    @search = Student.ransack(params[:q])
+    @students = @search.result(distinct: true).paginate(page: params[:page], per_page: 15)
+    @students_count = Student.count
   end
 
   def show; end
