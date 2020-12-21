@@ -4,7 +4,7 @@
   <p><%= link_to 'Добавить студента', new_student_path, class: 'btn btn-success' %></p>
 
   <%= search_form_for @search, url: students_path do |f| %>
-    <div class="row g-3 align-items-center">
+    <div class="row g-3 align-items-center py-3">
       <div class="col-auto">
         <%= f.label :last_name_cont, 'Поиск по фамилии:', class: 'col-form-label' %>
       </div>
@@ -17,6 +17,15 @@
       </div>
     </div>
   <% end %>
+
+  <div class="py-3">
+  <p>
+    <strong>Сортировать: </strong>
+    <%= sort_link(@search, :last_name, 'по ФИО студента', default_order: :desc) %> |
+    <%= sort_link(@search, :gender, 'по полу', default_order: :desc) %> |
+    <%= sort_link(@search, :signal, 'по позывному', default_order: :desc) %>
+  </p>
+  </div>
 
   <p>Найдено <%= @students.count %> из <%= @students_count %></p>
 
